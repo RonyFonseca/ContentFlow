@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor "Usuário" as Usuario
+
+rectangle "Sistema ContentFlow" {
+
+  (Criar planejamento) as CP
+  (Visualizar calendário) as VC
+  (Adicionar post) as AP
+  (Editar post) as EP
+  (Alterar status do post) as SP
+  (Filtrar posts) as FP
+  (Visualizar dashboard) as VD
+
+}
+
+Usuario --> CP
+Usuario --> VC
+Usuario --> AP
+Usuario --> EP
+Usuario --> FP
+Usuario --> VD
+
+EP ..> AP : <<include>> /' Editar post inclui a funcionalidade de adicionar post '/
+SP ..> EP : <<extend>> /' Alterar status do post é uma extensão da funcionalidade de editar post '/
+
+@enduml
