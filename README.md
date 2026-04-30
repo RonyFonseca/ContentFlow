@@ -94,6 +94,24 @@ Facilitar o planejamento estratégico de conteúdo para redes sociais, permitind
 ### Banco de Dados
 - PostgreSQL  
 
+---
+
+## 🧩 Design e Experiência 
+
+O design da aplicação foi prototipado no Figma, com foco em usabilidade, organização visual e fluxo intuitivo. 
+
+**✦ Projeto completo (Figma Design):** [Figma Design](https://www.figma.com/design/Q7mCjCD4lsEHdAO4eLQ9xd/ContentFlow?node-id=28-4&t=KHQn2BYSuI6nqQoD-1) 
+
+**✦ Protótipo interativo (simulação de uso):** [Protótipo interativo](https://www.figma.com/proto/Q7mCjCD4lsEHdAO4eLQ9xd/ContentFlow?node-id=28-4&t=KHQn2BYSuI6nqQoD-1) 
+
+### Principais telas: 
+
+- Login 
+- Cadastro 
+- Home 
+- Calendário de planejamento 
+- Criação de Posts 
+- Dashboard
 
 ---
 
