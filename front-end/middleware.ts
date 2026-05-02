@@ -1,3 +1,4 @@
+"use server";
 import {NextRequest, NextResponse} from 'next/server';
 
 export function middleware(request: NextRequest) {
@@ -9,10 +10,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/auth/login', request.url));
   }
 
-
   if(pathname === "/"){
     if(token){
-      return NextResponse.redirect(new URL("/home", request.url));
+      return NextResponse.redirect(new URL("/", request.url));
     } else {
       return NextResponse.redirect(new URL("/auth/login", request.url));
     }
@@ -26,5 +26,6 @@ export const config = {
     "/",
     "/login",
     "/register",
+    "/dashboard",
   ],
 };
