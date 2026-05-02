@@ -1,3 +1,4 @@
+"use client";
 export default function CreateAccountPage() {
     return (
         <div className="flex items-center justify-center h-screen">
