@@ -38,16 +38,16 @@
     --tertiary-900: #005357;
 
     /* Greys */
-    --grey-50: #fafafa;
-    --grey-100: #f0f0f0;
-    --grey-200: #e9e9e9;
-    --grey-300: #dfdfdf;
-    --grey-400: #d9d9d9;
-    --grey-500: #cfcfcf; /* Cor principal */
-    --grey-600: #bcbcbc;
-    --grey-700: #939393;
-    --grey-800: #727272;
-    --grey-900: #575757;
+    --gray-50: #fafafa;
+    --gray-100: #f0f0f0;
+    --gray-200: #e9e9e9;
+    --gray-300: #dfdfdf;
+    --gray-400: #d9d9d9;
+    --gray-500: #cfcfcf; /* Cor principal */
+    --gray-600: #bcbcbc;
+    --gray-700: #939393;
+    --gray-800: #727272;
+    --gray-900: #575757;
 
     /* Status Colors */
 
@@ -103,13 +103,12 @@
     /* Base Colors */
     --white: #ffffff;
     --black: #1A1A1A;
+    
 }
 
 /*ContentFlow Tipográfia*/
 
 :root {
-    /* Font Family */
-    --font-family: 'Poppins', sans-serif;
 
     /* Font Sizes */
     --fs-h1: 3.5rem;    /* 56px */
@@ -127,9 +126,15 @@
     --lh-normal: 1.2; /* 120% */
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-poppins);
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
   color: var(--black);
