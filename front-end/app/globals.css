@@ -1,0 +1,138 @@
+/*ContentFlow - Design System*/
+
+/*ContentFlow Cores*/
+
+:root {
+    /* Brand Colors - Primary */
+    --primary-50: #f0eefd;
+    --primary-100: #cfcafa;
+    --primary-200: #b8b0f7;
+    --primary-300: #988cf4;
+    --primary-400: #8476f1;
+    --primary-500: #6554ee; /* Cor principal */
+    --primary-600: #5c4cd9;
+    --primary-700: #483ca9;
+    --primary-800: #382e83;
+    --primary-900: #2a2364;
+
+    /* Secondary */
+    --secondary-50: #e6f2fd;
+    --secondary-100: #b3d7f9;
+    --secondary-200: #8ec4f6;
+    --secondary-300: #5aa9f2;
+    --secondary-400: #3a99ef;
+    --secondary-500: #097feb; /* Cor principal */
+    --secondary-600: #0874d6;
+    --secondary-700: #065aa7;
+    --secondary-800: #054681;
+    --secondary-900: #043563;
+
+    /* Tertiary */
+    --tertiary-50: #e6f9fa;
+    --tertiary-100: #b0edf0;
+    --tertiary-200: #8ae5e9;
+    --tertiary-300: #55d9df;
+    --tertiary-400: #34d1d9;
+    --tertiary-500: #01c6cf; /* Cor principal */
+    --tertiary-600: #01b4bc;
+    --tertiary-700: #018d93;
+    --tertiary-800: #016d72;
+    --tertiary-900: #005357;
+
+    /* Greys */
+    --grey-50: #fafafa;
+    --grey-100: #f0f0f0;
+    --grey-200: #e9e9e9;
+    --grey-300: #dfdfdf;
+    --grey-400: #d9d9d9;
+    --grey-500: #cfcfcf; /* Cor principal */
+    --grey-600: #bcbcbc;
+    --grey-700: #939393;
+    --grey-800: #727272;
+    --grey-900: #575757;
+
+    /* Status Colors */
+
+    /* Green*/
+    --green-500: #76ca81;
+    --green-50: #f1faf2;
+    --green-100: #d5efd8;
+    --green-200: #c0e7c5;
+    --green-300: #a3dbab;
+    --green-400: #91d59a;
+    --green-500: #76ca81;
+    --green-600: #6bb875;
+    --green-700: #548f5c;
+    --green-800: #416f47;
+    --green-900: #325536;
+
+    /* Blue*/
+    --blue-50: #eef5fe;
+    --blue-100: #cbe0fd;
+    --blue-200: #b2d1fc;
+    --blue-300: #8ebdfb;
+    --blue-400: #79b0fa;
+    --blue-500: #579cf9;
+    --blue-600: #4f8ee3;
+    --blue-700: #3e6fb1;
+    --blue-800: #305689;
+    --blue-900: #254269;
+
+    /* Orange */
+    --orange-50: #fffaec;
+    --orange-100: #ffefc5;
+    --orange-200: #ffe8a9;
+    --orange-300: #fedd81;
+    --orange-400: #fed669;
+    --orange-500: #fecc43;
+    --orange-600: #e7ba3d;
+    --orange-700: #b49130;
+    --orange-800: #8c7025;
+    --orange-900: #6b561c;
+
+    /* Red */
+    --red-50: #ffecec;
+    --red-100: #ffc5c5;
+    --red-200: #ffa9a9;
+    --red-300: #fe8181;
+    --red-400: #fe6969;
+    --red-500: #fe4343;
+    --red-600: #e73d3d;
+    --red-700: #b43030;
+    --red-800: #8c2525;
+    --red-900: #6b1c1c;
+
+    /* Base Colors */
+    --white: #ffffff;
+    --black: #1A1A1A;
+}
+
+/*ContentFlow Tipográfia*/
+
+:root {
+    /* Font Family */
+    --font-family: 'Poppins', sans-serif;
+
+    /* Font Sizes */
+    --fs-h1: 3.5rem;    /* 56px */
+    --fs-h2: 3rem;      /* 48px */
+    --fs-h3: 2.5rem;    /* 40px */
+    --fs-h4: 2rem;      /* 32px */
+    --fs-h5: 1.5rem;    /* 24px */
+    --fs-large: 1.125rem; /* 18px */
+    --fs-body: 1rem;     /* 16px */
+    --fs-small: 0.875rem; /* 14px */
+    --fs-legal: 0.75rem;  /* 12px */
+
+    /* Line Heights */
+    --lh-tight: 1.08; /* 108% */
+    --lh-normal: 1.2; /* 120% */
+}
+
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--black);
+}
