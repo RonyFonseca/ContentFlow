@@ -133,6 +133,9 @@ O design da aplicação foi prototipado no Figma, com foco em usabilidade, organ
 ```bash
 contentflow/
 │
+├── docs/
+│   ├── casos-de-uso/
+│
 ├── frontend/
 │   ├── pages/
 │   ├── components/
