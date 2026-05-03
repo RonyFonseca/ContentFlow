@@ -1,0 +1,21 @@
+#appLayout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+
+  grid-template-areas: "sidebar main";
+  margin-left: 100px;
+}
+
+.aside {
+  grid-area: sidebar;
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+  padding-top: 1rem;
+  margin-left: 7rem;
+}
+
+
+

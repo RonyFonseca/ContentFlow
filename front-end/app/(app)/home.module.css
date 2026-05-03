@@ -1,0 +1,36 @@
+#home {
+    max-width: 700px;
+}
+
+
+.h1 {
+    font-size: var(--fs-h1);
+    padding-bottom: 5px;
+}
+
+
+#cards {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem 0rem;
+    padding-left: 50px;
+}
+
+.main {
+    border: 1px solid var(--gray-300);
+    height: 61vh;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.nextPosts {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seeAll {
+    color: var(--primary-500);
+}
+
