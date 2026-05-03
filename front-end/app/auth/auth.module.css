@@ -85,3 +85,11 @@
     background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
     color: var(--primary-50);
 }
+
+.legend {
+    color: var(--gray-800);
+    font-size: var(--fs-body); 
+    margin-top: -1.5rem;
+    text-align: center;   
+    margin-bottom: 2.5rem;
+}
