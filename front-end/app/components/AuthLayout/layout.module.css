@@ -1,0 +1,22 @@
+.containerAuth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 98vh;
+    background: linear-gradient(30deg,var(--secondary-500) , var(--primary-500), var(--primary-500));
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content {
+    background: var(--primary-50);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 37rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 1px 1px rgba(59, 59, 59, 0.336);
+}
