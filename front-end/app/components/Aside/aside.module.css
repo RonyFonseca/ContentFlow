@@ -1,0 +1,77 @@
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.menu {
+    border: 1px solid var(--gray-300);
+    padding: 1rem;
+    border-radius: 18px;
+    padding: 26px 8px;
+    margin-top: 20px;
+}
+
+.menu > nav > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.menu > nav > ul > li {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 1.3rem; 
+    padding: 0.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.menu > nav > ul > li > a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.icon {
+    font-size: 2.3rem;
+}
+
+.clicado {
+    background-color: var(--primary-50);
+    color: var(--primary-500);
+}
+
+.clicado > a {
+    color: var(--primary-500);
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo {
+    padding-left: 10px;
+}
+
+.signOutButton {
+    margin-top:12px;
+    border: 1px solid var(--gray-400);
+    border-radius: 12px;
+    height: 39px;
+    font-size: 1.4rem;
+    color: var(--gray-900);
+    background-color: transparent;
+}
