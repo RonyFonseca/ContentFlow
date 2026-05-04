@@ -1,0 +1,4 @@
+.h1 {
+    font-size: var(--fs-h2);
+    padding-bottom: 5px;
+}
