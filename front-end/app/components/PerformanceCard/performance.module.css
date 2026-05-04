@@ -1,0 +1,77 @@
+.performanceCard {
+    border: 1px solid var(--gray-200);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    overflow: hidden; 
+}
+
+.green { --color: var(--green-500); --bg: var(--green-100); }
+.orange { --color: var(--orange-500); --bg: var(--orange-100); }
+.red { --color: var(--red-500); --bg: var(--red-100); }
+
+.cardHeader {
+    background-color: var(--bg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.iconCircle {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+.cardHeader h3 {
+    color: var(--color);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.cardHeader p {
+    font-size: 0.7rem;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+.footerWrapper {
+    padding: 0 1.5rem 1.5rem 1.5rem; 
+}
+
+.cardFooter {
+    background-color: var(--bg);
+    padding: 0.9rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: var(--gray-700);
+    text-align: center; 
+}
+
+.dayList {
+    padding: 2rem 1.5rem; 
+    list-style: none;
+    margin: 0;
+}
+
+.dayList li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--gray-800);
+}
+
+.badge {
+    background-color: var(--bg);
+    color: var(--color);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
