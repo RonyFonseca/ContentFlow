@@ -1,0 +1,21 @@
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray-300);
+    padding: 15px;
+    border-radius: 10px;
+    gap: 8px;
+}
+
+.icon {
+    text-align: center;
+}
+
+.quantity {
+    font-size: var(--fs-h3);
+}
+
+.description {
+    font-size: var(--fs-body);
+}

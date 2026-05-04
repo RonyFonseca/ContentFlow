@@ -24,7 +24,47 @@ export default function Home() {
           <h2 >Próximos posts</h2>
           <a  className={Style.seeAll}>ver todos</a>
         </div>
-        <div></div>
+        <div className={Style.posts}>
+          <div className={Style.post}>
+            <div className={Style.date}>
+              <h4>22</h4>
+              <p>ABR</p>
+            </div>
+            <div className={Style.postContent}>
+              <p>Post sobre sofá retrátil</p>
+              <div className={Style.postStatusVerder}>
+                <p>Postado</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={Style.post}>
+            <div className={Style.date}>
+              <h4>24</h4>
+              <p>ABR</p>
+            </div>
+            <div className={Style.postContent}>
+              <p>Post sobre sofá retrátil</p>
+              <div className={Style.postStatusAmarelo}>
+                <p>Planejado</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={Style.post}>
+            <div className={Style.date}>
+              <h4>26</h4>
+              <p>ABR</p>
+            </div>
+            <div className={Style.postContent}>
+              <p>Post sobre sofá retrátil</p>
+              <div className={Style.postStatusAzul}>
+                <p>Planejado</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </main>
     </div>
   );
