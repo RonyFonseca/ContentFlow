@@ -1,0 +1,24 @@
+.h1 {
+    font-size: var(--fs-h2);
+    padding-bottom: 5px;
+}
+
+.cardsContainer {
+    display: flex;      
+    gap: 1.5rem;       
+    padding: 2rem 0;
+    flex-wrap: wrap;    
+}
+
+.performanceGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem; 
+    margin-top: 2rem;
+}
+
+.performanceContainer {
+    border: 1px solid var(--gray-300);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
