@@ -3,6 +3,7 @@ import Style from "../auth.module.css";
 import Logo from "../../../public/LogoTipo.svg";
 import AuthLayout from "../../components/AuthLayout/layout";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowLeftIcon, EnvelopeIcon, LockKeyIcon, UserIcon } from "@phosphor-icons/react";
 
 export default function CreateAccountPage() {
@@ -13,7 +14,7 @@ export default function CreateAccountPage() {
                     <li><Image src={Logo} alt="Logo" width={160}/></li>
                     <li className={Style.button_destaque_header}>
                         <ArrowLeftIcon width={20}/>
-                        <a href="/auth/login">Log in</a>
+                        <Link href="/auth/login">Log in</Link>
                     </li>
                 </ul>
             </header>

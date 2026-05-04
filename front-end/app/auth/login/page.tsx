@@ -3,6 +3,7 @@ import Style from "../auth.module.css";
 import Logo from "../../../public/LogoTipo.svg";
 import AuthLayout from "../../components/AuthLayout/layout";
 import Image from "next/image";
+import Link from "next/link";
 import {ArrowRightIcon,EnvelopeIcon,LockKeyIcon} from "@phosphor-icons/react";
 
 
@@ -13,7 +14,7 @@ export default function LoginPage() {
                 <ul>
                     <li><Image src={Logo} alt="Logo" width={160}/></li>
                     <li className={Style.button_destaque_header}>
-                        <a href="#">Cadastrar</a>
+                        <Link href="/auth/create">Cadastrar</Link>
                         <ArrowRightIcon width={50}/>
                     </li>
                 </ul>
