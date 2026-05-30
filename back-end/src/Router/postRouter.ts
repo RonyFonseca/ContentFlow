@@ -1,6 +1,8 @@
 import express from 'express';
+import postController from '../Controller/postController.js';
 
 const router = express.Router();
+const postControllerInstance = new postController();
 
 //método listarPosts()
 router.get('/posts', (req: express.Request, res: express.Response) => {
@@ -8,21 +10,13 @@ router.get('/posts', (req: express.Request, res: express.Response) => {
 });
 
 //método criarPost()
-router.post('/posts', (req: express.Request, res: express.Response) => {
-    res.status(201).json({ message: 'Post criado com sucesso' });
-});
+router.post('/createPost', postControllerInstance.createPost);
 
 //método alterarStatus()
-router.patch('/posts/:id/status', (req: express.Request, res: express.Response) => {
-    const { id } = req.params;
-    res.status(200).json({ message: `Status do post ${id} alterado` });
-});
+router.patch('/posts/:idPost/status', postControllerInstance.updatePost);
 
 //método removerPost()
-router.delete('/posts/:id', (req: express.Request, res: express.Response) => {
-    const { id } = req.params;
-    res.status(200).json({ message: `Post ${id} removido` });
-});
+router.delete('/posts/:idPost/delete', postControllerInstance.deletePost);
 
 export default router;
 
