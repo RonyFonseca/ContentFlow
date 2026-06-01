@@ -1,6 +1,37 @@
 import {prisma} from "../lib/prisma.js";
+import jwtGenerate from "../utils/jwtGenerate.js";
 
 class userController {
+
+  async loginUser(req:any , res:any){
+    const {email, password} = req.body; 
+
+    if(!email || !password){
+      return res.status(400).json({error: "Falta informação!"})
+    }
+
+    if(email.includes("@") === false) {
+      return res.status(400).json({ error: "Email inválido!"});
+    }
+
+    const emailExist = await prisma.user.find({where: {email:email}})
+
+    if(!emailExist) {
+      return res.status(400).json({error: "Usuário não está cadastrado!"})
+    }
+
+    const token = await jwtGenerate(emailExist.id, emailExist.email, emailExist.name); 
+
+    try{
+      return res.status(200).json({message: "Usuário logado", token});
+    }catch(error){
+      return res.status(400).json(error);
+    }
+
+  }
+
+
+
   async createUser(req: any, res: any) {
     const {name, email, password} = req.body; 
 
