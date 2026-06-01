@@ -1,15 +1,10 @@
 import express from 'express';
+import dashController from '../Controller/dashController.js';
 
 const router = express.Router();
+const dashInstance = new dashController();
 
 //gerarResumo e calcularPostsPorStatus
-router.get('/dashboard/summary', (req: express.Request, res: express.Response) => {
-    res.status(200).json({ message: 'Resumo estatístico dos posts por status' });
-});
-
-//método calcularAlcanceTotal()
-router.get('/dashboard/reach', (req: express.Request, res: express.Response) => {
-    res.status(200).json({ message: 'Dados de alcance analítico por dia da semana' });
-});
+router.get('/dashboard/summary', dashInstance.gerarResumo);
 
 export default router;

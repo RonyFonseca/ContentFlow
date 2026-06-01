@@ -5,9 +5,9 @@ const router = express.Router();
 const postControllerInstance = new postController();
 
 //método listarPosts()
-router.get('/posts', (req: express.Request, res: express.Response) => {
-    res.status(200).json({ message: 'Lista de posts' });
-});
+router.get('/posts', postControllerInstance.getAllPosts);
+
+router.get('/post/:idPost', postControllerInstance.getPostById);
 
 //método criarPost()
 router.post('/createPost', postControllerInstance.createPost);

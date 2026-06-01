@@ -1,6 +1,51 @@
 import { prisma } from "../lib/prisma.js";
 
 class postController {
+    async getAllPosts(req: any, res: any) {
+        try {
+            const posts = await prisma.post.findMany({
+                include: {
+                    user: {
+                        select: {
+                            name: true,
+                        },
+                    },
+                },
+            });
+            return res.status(200).json({ posts });
+        } catch (error) {
+            return res.status(500).json({ error: error});
+        }
+    }
+
+    async getPostById(req: any, res: any) {
+        const {idPost} = req.params;
+        if(!idPost) {
+            return res.status(400).json({ error: "O ID do post é obrigatório!"});
+        }
+
+        try {
+            const post = await prisma.post.findUnique({
+                where: {
+                    id: idPost,
+                },
+                include: {
+                    user: {
+                        select: {
+                            name: true,
+                        },
+                    },
+                },
+            });
+            if(!post) {
+                return res.status(404).json({ error: "Post não encontrado no banco de dados!"});
+            }
+            return res.status(200).json({ post });
+        } catch (error) {
+            return res.status(500).json({ error: error});
+        }
+    }
+
     async createPost(req: any, res: any) {
         const {title, content, type, userId} = req.body;
 
