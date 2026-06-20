@@ -1,0 +1,126 @@
+.container {
+  padding: 40px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #6366f1;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label, .statusGroup label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.inputGroup input, .inputGroup textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fff;
+  outline: none;
+  color: #333;
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+  border-color: #6366f1;
+}
+
+/* Área das Badges de Status */
+.statusGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badgeContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.badge {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0.5; 
+}
+
+/* Estilos individuais de cada Status */
+.badgePlanejado { background-color: #fef3c7; color: #d97706; }
+.badgeAndamento { background-color: #e0f2fe; color: #0284c7; }
+.badgePostado { background-color: #dcfce7; color: #16a34a; }
+
+/* Classes ativas que acendem quando o usuário clica */
+.activePlanejado, .activeAndamento, .activePostado {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cancelBtn {
+  background-color: #fff;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color: #4f46e5;
+}

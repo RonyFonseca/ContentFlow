@@ -1,0 +1,109 @@
+.postsPageContainer {
+  padding: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.newPostButton {
+  background-color: #6366f1; 
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newPostButton:hover {
+  background-color: #4f46e5;
+}
+
+/* Área de Filtros */
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.statusSelect {
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  background-color: #fff;
+  padding: 10px 40px 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #4a5568;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+  color: #a0aec0;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background-color: #fff;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: #a0aec0;
+}
+
+.mainListContainer {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
