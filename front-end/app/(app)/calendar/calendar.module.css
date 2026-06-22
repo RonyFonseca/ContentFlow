@@ -2,3 +2,135 @@
     font-size: var(--fs-h2);
     padding-bottom: 5px;
 }
+
+.calendarContainer {
+  padding: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #71717a;
+}
+
+.newPostButton {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newPostButton:hover {
+  background-color: #4f46e5;
+}
+
+/* Navegação do Mês */
+.monthNavigation {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+.monthNavigation h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.arrowButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.arrowBtn:hover {
+  color: #6366f1;
+}
+
+/* Box do Calendário */
+.calendarCard {
+  background-color: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Cabeçalho de dias: Dom, Seg... */
+.weekDaysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  border-bottom: 1px solid #e4e4e7;
+  padding: 12px 0;
+  background-color: #ffffff;
+}
+
+.weekDayLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+}
+
+.dayCell {
+  aspect-ratio: 1.2 / 1; 
+  border-right: 1px solid #e4e4e7;
+  border-bottom: 1px solid #e4e4e7;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  background-color: #ffffff;
+}
+
+.dayCell:nth-child(7n) {
+  border-right: none;
+}
+
+.dayCell:nth-last-child(-n+7) {
+  border-bottom: none;
+}
+
+.dayCell:hover {
+  background-color: #f8fafc;
+}
+
+/* Dias do mês anterior ou próximo (Mais apagadinhos) */
+.nextMonthDay {
+  color: #d1d5db;
+}
