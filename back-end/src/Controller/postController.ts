@@ -1,4 +1,4 @@
-import { prisma } from "../lib/prisma.js";
+import prisma from "../lib/prisma.js";
 
 class postController {
     async getAllPosts(req: any, res: any) {

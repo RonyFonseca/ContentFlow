@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres_db
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: contentFlow
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  backend:
+    build: ./back-end
+    container_name: backend
+    restart: always
+
+    ports:
+      - "5000:5000"
+
+    environment:
+      DATABASE_URL: postgresql://postgres:123456@postgres:5432/contentFlow
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    # (opcional mas recomendado se você tiver Prisma)
+    command: sh -c "npx prisma generate && npx prisma migrate deploy && node dist/index.js"
+
+  frontend:
+    build: ./front-end
+    container_name: frontend
+    restart: always
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      NEXT_PUBLIC_API_URL: http://backend:5000
+
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

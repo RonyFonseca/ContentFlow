@@ -1,5 +1,5 @@
 import express from 'express';
-import dashController from '../Controller/dashController.js';
+import dashController from '../controller/dashController.js';
 
 const router = express.Router();
 const dashInstance = new dashController();

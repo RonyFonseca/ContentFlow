@@ -1,4 +1,4 @@
-import {prisma} from "../lib/prisma.js";
+import prisma from "../lib/prisma.js";
 import jwtGenerate from "../utils/jwtGenerate.js";
 
 class userController {
@@ -14,13 +14,13 @@ class userController {
       return res.status(400).json({ error: "Email inválido!"});
     }
 
-    const emailExist = await prisma.user.find({where: {email:email}})
+    const emailExist = await prisma.user.findMany({where: {email:email}})
 
-    if(!emailExist) {
+    if(!emailExist.length) {
       return res.status(400).json({error: "Usuário não está cadastrado!"})
     }
 
-    const token = await jwtGenerate(emailExist.id, emailExist.email, emailExist.name); 
+    const token = await jwtGenerate(emailExist[0].id, emailExist[0].email, emailExist[0].name); 
 
     try{
       return res.status(200).json({message: "Usuário logado", token});
