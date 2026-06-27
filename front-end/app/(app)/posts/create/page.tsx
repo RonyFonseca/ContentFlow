@@ -29,9 +29,9 @@ export default function CreatePost() {
         <h1 className={Style.title}>Criar Post</h1>
         
         {/* Link de Voltar */}
-        <button className={Style.backButton} onClick={() => router.push("/posts")}>
+        <button className={Style.backButton} onClick={() => router.back()}>
             <CaretLeft size={16} />
-            Voltar para calendário
+            Voltar
         </button>
 
         <form className={Style.form} onSubmit={handleSavePost}>
@@ -111,7 +111,7 @@ export default function CreatePost() {
             </div>
 
             <div className={Style.actions}>
-            <button type="button" className={Style.cancelBtn} onClick={() => router.push("/posts")}>
+            <button type="button" className={Style.cancelBtn} onClick={() => router.back()}>
                 Cancelar
             </button>
             <button type="submit" className={Style.saveBtn}>
