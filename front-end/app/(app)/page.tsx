@@ -60,7 +60,7 @@ export default function Home() {
       <main className={Style.main}>
         <div className={Style.nextPosts}>
           <h2 >Próximos posts</h2>
-          <a  className={Style.seeAll}>ver todos</a>
+          <a  className={Style.seeAll} onClick={() => window.location.href = "/posts"}>ver todos</a>
         </div>
         <div className={Style.posts}>
           {posts.length === 0 ? (

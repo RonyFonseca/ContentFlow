@@ -100,17 +100,17 @@ export default function CreatePost() {
             <div className={Style.badgeContainer}>
                 <button
                 type="button"
-                className={`${Style.badge} ${Style.badgePlanejado} ${status === "Planejado" ? Style.activePlanejado : ""}`}
+                className={`${Style.badge} ${Style.badgePlanejado} ${status === "Em andamento" ? Style.activePlanejado : ""}`}
                 onClick={() => setStatus("Planejado")}
                 >
-                    Planejado
+                    Em andamento
                 </button>
                 <button
                 type="button"
-                className={`${Style.badge} ${Style.badgeAndamento} ${status === "Em andamento" ? Style.activeAndamento : ""}`}
+                className={`${Style.badge} ${Style.badgeAndamento} ${status === "Planejado" ? Style.activeAndamento : ""}`}
                 onClick={() => setStatus("Em andamento")}
                 >
-                    Em andamento
+                    Planejado
                 </button>
                 <button
                 type="button"

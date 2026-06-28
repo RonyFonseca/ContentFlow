@@ -11,9 +11,45 @@ import Magic from '../../../public/magic.svg';
 import Flame from '../../../public/Icons-desempenho-verde.svg';
 import Scales from '../../../public/Icons-desempenho-laranja.svg';
 import ChartLineDown from '../../../public/Icons-desempenho-vermelho.svg';
+import { useEffect, useState } from "react";
+import { api } from "@/services/api";
+import Cookie from "js-cookie";
 
 
 export default function Dashboard() {
+   const [posts, setPosts] = useState([]);
+  
+    useEffect(() => {
+      const getInformations = async () => {
+        try {
+  
+          const response = await api.get("/getAllPostsById", {
+            headers: {
+              Authorization: `Bearer ${Cookie.get("token")}`
+            }
+          });
+  
+          setPosts(response.data.posts);
+        } catch (error) {
+          console.error("Erro ao buscar informações:", error);
+        }
+      };
+  
+      getInformations();
+    }, []);
+  
+  
+    const getPlanejados = () => {
+      return posts.filter((post: any) => post.status === "Planejado").length;
+    }
+  
+    const getConcluidos = () => {
+      return posts.filter((post: any) => post.status === "Postado").length;
+    }
+  
+    const getPendentes = () => {
+      return posts.filter((post: any) => post.status === "Em andamento").length;
+    }
 
   return (
     <div id={Style.dashboard}>
@@ -24,9 +60,9 @@ export default function Dashboard() {
         </header>
 
         <section className={Style.cardsContainer}> 
-          <Card quantidade={12} description="Posts planejados" icon={Note} />
-          <Card quantidade={5} description="Posts postados" icon={Check} />
-          <Card quantidade={8} description="Posts pendentes" icon={Clock} />
+          <Card quantidade={getPlanejados()} description="Posts planejados" icon={Note} />
+          <Card quantidade={getConcluidos()} description="Posts postados" icon={Check} />
+          <Card quantidade={getPendentes()} description="Posts pendentes" icon={Clock} />
           <Card quantidade={3} description="Posts em produção" icon={Magic} />
         </section>
 

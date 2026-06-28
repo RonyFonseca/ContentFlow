@@ -26,7 +26,12 @@ export default function Aside() {
   const isActive = (path: string) => {
     return pathname === path ? Style.clicado : "";
   }
-  console.log(isActive("/"));
+
+  const signOut = () => {
+    Cookie.remove("token");
+    Cookie.remove("name");
+    window.location.href = "/";
+  }
 
 
 
@@ -56,7 +61,7 @@ export default function Aside() {
                 <h4>{name}</h4>
             </div>
         </div>
-        <button className={Style.signOutButton}><SignOutIcon />Sair</button>
+        <button className={Style.signOutButton} onClick={signOut}><SignOutIcon />Sair</button>
       </div>
     </aside>
   );
