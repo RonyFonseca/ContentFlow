@@ -23,7 +23,7 @@ class userController {
     const token = await jwtGenerate(emailExist[0].id, emailExist[0].email, emailExist[0].name); 
 
     try{
-      return res.status(200).json({message: "Usuário logado", token});
+      return res.status(200).json({message: "Usuário logado", token, name: emailExist[0].name});
     }catch(error){
       return res.status(400).json(error);
     }
@@ -67,7 +67,10 @@ class userController {
             password,
         },
       });
-      return res.status(201).json("Usuário criado com sucesso!");
+
+      const token = await jwtGenerate(user.id, user.email, user.name);
+
+      return res.status(201).json({message: "Usuário criado com sucesso!", token, name: user.name});
     } catch (error) {
       return res.status(500).json({ error: error});
     }

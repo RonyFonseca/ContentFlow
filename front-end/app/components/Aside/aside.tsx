@@ -5,15 +5,30 @@ import Link from "next/link";
 import Logo from "../../../public/LogoTipo.svg";
 import { usePathname } from "next/navigation";
 import { HouseIcon,CalendarBlankIcon,NotePencilIcon,ChartBarIcon,SignOutIcon } from "@phosphor-icons/react";
+import Cookie from "js-cookie";
+import { useState,useEffect } from "react";
 
 export default function Aside() {
 
   const pathname = usePathname();
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const getInformations = async() => {
+      try {
+        setName(Cookie.get("name") || "");
+      }catch (error) {}
+    }
+
+    getInformations();
+  }, []);
 
   const isActive = (path: string) => {
     return pathname === path ? Style.clicado : "";
   }
   console.log(isActive("/"));
+
+
 
 
   return (
@@ -38,7 +53,7 @@ export default function Aside() {
             </div>
             <div className={Style.userInfo}>
                 <label>Seu perfil</label>
-                <h4>Rony Fonseca</h4>
+                <h4>{name}</h4>
             </div>
         </div>
         <button className={Style.signOutButton}><SignOutIcon />Sair</button>

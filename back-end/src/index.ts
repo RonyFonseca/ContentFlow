@@ -10,8 +10,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 
-app.use(cors()); 
 app.use(express.json());
 
 
@@ -20,6 +24,8 @@ app.use('/api', postRouter);
 app.use('/api', dashboardRouter);
 
 
-app.listen(5000, "0.0.0.0", () => {
+
+
+app.listen(5000, () => {
   console.log("Servidor rodando em http://localhost:5000");
 });

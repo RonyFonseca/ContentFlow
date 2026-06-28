@@ -18,6 +18,16 @@ class postController {
         }
     }
 
+    async getAllPostsById(req: any, res: any) {
+        const userId = req.user.userId; // Log the user ID to verify it's being passed correctly
+
+        const posts = await prisma.post.findMany({
+            where: {
+            userId
+        }});
+        return res.status(200).json({ posts });
+    }
+
     async getPostById(req: any, res: any) {
         const {idPost} = req.params;
         if(!idPost) {
@@ -47,13 +57,15 @@ class postController {
     }
 
     async createPost(req: any, res: any) {
-        const {title, content, type, userId} = req.body;
+        const {title, content, type, status, date} = req.body;
 
-        if(!title || !content || !userId) {
+        const userId = req.user.userId; // Log the user ID to verify it's being passed correctly
+
+        if(!title || !content || !type || !status || !date) {
             return res.status(400).json({ error: "Falta informação!"});
         }
 
-        if(title.length > 20) {
+        if(title.length > 40) {
             return res.status(400).json({ error: "O título está muito longo!"});
         }
 
@@ -81,12 +93,14 @@ class postController {
                     title,
                     content,
                     userId,
-                    status: "Em andamento",
+                    status,
                     type,
+                    date,
                 },
             });
             return res.status(201).json({ message: "Post criado com sucesso!", post });
         } catch (error) {
+            console.error("Erro ao criar post:", error);
             return res.status(500).json({ error: error});
         }
     }

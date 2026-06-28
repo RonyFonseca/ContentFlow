@@ -7,12 +7,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeftIcon, EnvelopeIcon, LockKeyIcon, UserIcon } from "@phosphor-icons/react";
 import { api } from "../../../services/api"; // 2. Importando a conexão da API que você criou
+import { useRouter } from "next/navigation"; // Importando o hook useRouter
 
 export default function CreateAccountPage() {
     // 3. Criando "estados" para salvar temporariamente o que é digitado
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter(); // Inicializando o hook useRouter
 
     // Função ao clicar no botão "Criar conta"
     async function handleCreateAccount(event: React.FormEvent) {
@@ -25,12 +27,17 @@ export default function CreateAccountPage() {
                 password
             });
 
-            //(Status 201) back
-            alert(response.data); 
-            
+            document.cookie = `token=${response.data.token}; path=/;`;
+            document.cookie = `name=${response.data.name}; path=/;`;
+             // Armazena o token no cookie
+             // Exibe a resposta do servidor no console
             setName("");
             setEmail("");
             setPassword("");
+
+            router.push("/"); // Redireciona para a página de login
+
+
 
         } catch (error: any) {
             const errorMessage = error.response?.data?.error || "Erro ao conectar com o servidor.";

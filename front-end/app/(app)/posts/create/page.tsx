@@ -3,6 +3,8 @@ import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Style from "./createPost.module.css";
 import { CaretLeft } from "@phosphor-icons/react";
+import { api } from "../../../../services/api";
+import Cookie from "js-cookie";
 
 export default function CreatePost() {
   const router = useRouter();
@@ -10,16 +12,26 @@ export default function CreatePost() {
   // Estados para controlar o formulário
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
-  const [contentType, setContentType] = useState("");
-  const [caption, setCaption] = useState("");
+  const [content, setContent] = useState("");
+  const [type, setType] = useState("");
   const [status, setStatus] = useState("Planejado"); // Padrão inicial
 
   async function handleSavePost(event: React.FormEvent) {
     event.preventDefault();
-    
-    // Implementação futura: api.post("/createPost") enviando estes dados!
-    console.log({ date, title, contentType, caption, status });
-    alert("Post salvo com sucesso! (Simulação)");
+
+    const submitPost = async () => {
+      try {
+        await api.post("/createPost", { date, title, content, type, status }, {
+          headers: {
+            Authorization: `Bearer ${Cookie.get("token")}`,
+          },
+        });
+      } catch (error) {
+        console.error("Erro ao criar post:", error);
+      }
+    };
+
+    submitPost();
     router.push("/posts");
   }
 
@@ -64,8 +76,8 @@ export default function CreatePost() {
             <input 
                 type="text" 
                 placeholder="Ex: Educativo" 
-                value={contentType}
-                onChange={(e) => setContentType(e.target.value)}
+                value={type}
+                onChange={(e) => setType(e.target.value)}
                 required
             />
             </div>
@@ -75,8 +87,8 @@ export default function CreatePost() {
             <label>Legenda</label>
             <textarea 
                 placeholder="Escreva a legenda do post..." 
-                value={caption}
-                onChange={(e) => setCaption(e.target.value)}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
                 rows={5}
                 required
             />

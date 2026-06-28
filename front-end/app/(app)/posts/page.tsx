@@ -1,14 +1,40 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Style from "./posts.module.css"; 
 import HomeStyle from "../home.module.css"; 
 import { useRouter } from "next/navigation";
 import { Plus, MagnifyingGlass, CaretDown } from "@phosphor-icons/react";
+import { api } from "../../../services/api";
+import Cookie from "js-cookie";
+
+
 
 export default function Posts() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("Todos");
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getInformations = async () => {
+      try {
+
+        const response = await api.get("/getAllPostsById", {
+          headers: {
+            Authorization: `Bearer ${Cookie.get("token")}`
+          }
+        });
+
+        setPosts(response.data.posts);
+        console.log("Informações recebidas:", response.data);
+      } catch (error) {
+        console.error("Erro ao buscar informações:", error);
+      }
+    };
+
+    getInformations();
+  }, []);
 
   return (
     <div className={Style.postsPageContainer}>
@@ -56,48 +82,30 @@ export default function Posts() {
 
       <main className={Style.mainListContainer}>
         <div className={HomeStyle.posts}>
-          
-          {/* Post 1 - Verde */}
-          <div className={HomeStyle.post}>
-            <div className={HomeStyle.date}>
-              <h4>22</h4>
-              <p>ABR</p>
-            </div>
-            <div className={HomeStyle.postContent}>
-              <p>Post sobre sofá retrátil</p>
-              <div className={HomeStyle.postStatusVerder}>
-                <p>Postado</p>
+          {posts.length === 0 ? (
+            <p className={Style.noPosts}>Nenhum post encontrado.</p>
+          ) : ( posts.filter((post: any) => {
+            if (statusFilter !== "Todos" && post.status !== statusFilter) {
+              return false;
+            }
+            if (searchTerm && !post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+              return false;
+            }
+            return true;
+          }).map((post: any, index: number) => (
+            <div className={HomeStyle.post} key={index}>
+              <div className={HomeStyle.date}>
+                <h4>{post.date.slice(8, 10)}</h4>
+                <p>JUN</p>
+              </div>
+              <div className={HomeStyle.postContent}>
+                <p>{post.title}</p>
+                <div className={ post.status === "Postado" ? HomeStyle.postStatusVerder :post.status === "Em andamento" ? HomeStyle.postStatusAmarelo : HomeStyle.postStatusAzul}>
+                  <p>{post.status}</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Post 2 - Amarelo */}
-          <div className={HomeStyle.post}>
-            <div className={HomeStyle.date}>
-              <h4>24</h4>
-              <p>ABR</p>
-            </div>
-            <div className={HomeStyle.postContent}>
-              <p>Post sobre estofados</p>
-              <div className={HomeStyle.postStatusAmarelo}>
-                <p>Planejado</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Post 3 - Azul */}
-          <div className={HomeStyle.post}>
-            <div className={HomeStyle.date}>
-              <h4>28</h4>
-              <p>ABR</p>
-            </div>
-            <div className={HomeStyle.postContent}>
-              <p>Post sobre evento</p>
-              <div className={HomeStyle.postStatusAzul}>
-                <p>Em andamento</p>
-              </div>
-            </div>
-          </div>
+          )))}
 
         </div>
       </main>

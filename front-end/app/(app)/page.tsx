@@ -5,8 +5,46 @@ import Card from "../components/Card/card";
 import Note from '../../public/Note.svg';
 import Check from '../../public/check.svg';
 import Clock from '../../public/clock.svg';
+import {useEffect} from "react";
+import Cookie from "js-cookie";
+import { api } from "../../services/api";
+
 export default function Home() {
-  const [name, setName] = useState("Rony");
+  const [name, setName] = useState("");
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getInformations = async () => {
+      try {
+        setName(Cookie.get("name") || "");
+
+        const response = await api.get("/getAllPostsById", {
+          headers: {
+            Authorization: `Bearer ${Cookie.get("token")}`
+          }
+        });
+
+        setPosts(response.data.posts);
+      } catch (error) {
+        console.error("Erro ao buscar informações:", error);
+      }
+    };
+
+    getInformations();
+  }, []);
+
+
+  const getPlanejados = () => {
+    return posts.filter((post: any) => post.status === "Planejado").length;
+  }
+
+  const getConcluidos = () => {
+    return posts.filter((post: any) => post.status === "Postado").length;
+  }
+
+  const getPendentes = () => {
+    return posts.filter((post: any) => post.status === "Em andamento").length;
+  }
 
   return (
     <div id={Style.home}>
@@ -15,9 +53,9 @@ export default function Home() {
         <p>Aqui está o resumo do seu planejamento.</p>
       </header>
       <section id={Style.cards}>
-       <Card quantidade={12} description="Posts planejados" icon={Note} />
-       <Card quantidade={5} description="Tarefas concluídas" icon={Check} />
-       <Card quantidade={8} description="Tarefas pendentes" icon={Clock} />
+       <Card quantidade={getPlanejados()} description="Posts planejados" icon={Note} />
+       <Card quantidade={getConcluidos()} description="Tarefas concluídas" icon={Check} />
+       <Card quantidade={getPendentes()} description="Tarefas pendentes" icon={Clock} />
       </section>
       <main className={Style.main}>
         <div className={Style.nextPosts}>
@@ -25,45 +63,22 @@ export default function Home() {
           <a  className={Style.seeAll}>ver todos</a>
         </div>
         <div className={Style.posts}>
-          <div className={Style.post}>
-            <div className={Style.date}>
-              <h4>22</h4>
-              <p>ABR</p>
-            </div>
-            <div className={Style.postContent}>
-              <p>Post sobre sofá retrátil</p>
-              <div className={Style.postStatusVerder}>
-                <p>Postado</p>
+          {posts.length === 0 ? (
+            <p className={Style.noPosts}>Nenhum post encontrado.</p>
+          ) : ( posts.slice(0, 3).map((post: any, index: number) => ( //exibir apenas 3
+            <div className={Style.post} key={index}>
+              <div className={Style.date}>
+                <h4>{post.date.slice(8, 10)}</h4>
+                <p>JUN</p>
+              </div>
+              <div className={Style.postContent}>
+                <p>{post.title}</p>
+                <div className={ post.status === "Postado" ? Style.postStatusVerder :post.status === "Em andamento" ? Style.postStatusAmarelo : Style.postStatusAzul}>
+                  <p>{post.status}</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className={Style.post}>
-            <div className={Style.date}>
-              <h4>24</h4>
-              <p>ABR</p>
-            </div>
-            <div className={Style.postContent}>
-              <p>Post sobre sofá retrátil</p>
-              <div className={Style.postStatusAmarelo}>
-                <p>Planejado</p>
-              </div>
-            </div>
-          </div>
-
-          <div className={Style.post}>
-            <div className={Style.date}>
-              <h4>26</h4>
-              <p>ABR</p>
-            </div>
-            <div className={Style.postContent}>
-              <p>Post sobre sofá retrátil</p>
-              <div className={Style.postStatusAzul}>
-                <p>Planejado</p>
-              </div>
-            </div>
-          </div>
-
+          )))}
         </div>
       </main>
     </div>
