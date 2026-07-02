@@ -79,3 +79,33 @@
     border-radius: 5px;
 }
 
+.postStatusVerder,
+.postStatusAmarelo,
+.postStatusAzul {
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.postStatusVerder select,
+.postStatusAmarelo select,
+.postStatusAzul select {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 1rem;
+}
+
+.postStatusVerder select option,
+.postStatusAmarelo select option,
+.postStatusAzul select option {
+    color: #000;
+    background: #fff;
+}
+

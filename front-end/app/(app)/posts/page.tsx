@@ -36,6 +36,13 @@ export default function Posts() {
     getInformations();
   }, []);
 
+  const handleStatusChange = async(id:string, status:string) => {
+    const response = await api.patch(`/posts/${id}/status`, {status}); 
+
+    window.location.reload();
+  }
+
+
   return (
     <div className={Style.postsPageContainer}>
       <header className={Style.header}>
@@ -98,10 +105,27 @@ export default function Posts() {
                 <h4>{post.date.slice(8, 10)}</h4>
                 <p>JUN</p>
               </div>
+
               <div className={HomeStyle.postContent}>
                 <p>{post.title}</p>
-                <div className={ post.status === "Postado" ? HomeStyle.postStatusVerder :post.status === "Em andamento" ? HomeStyle.postStatusAmarelo : HomeStyle.postStatusAzul}>
-                  <p>{post.status}</p>
+
+                <div
+                  className={
+                    post.status === "Postado"
+                      ? HomeStyle.postStatusVerder
+                      : post.status === "Em andamento"
+                      ? HomeStyle.postStatusAmarelo
+                      : HomeStyle.postStatusAzul
+                  }
+                >
+                  <select
+                    value={post.status}
+                    onChange={(e) => handleStatusChange(post.id, e.target.value)}
+                  >
+                    <option value="Planejado">Planejado</option>
+                    <option value="Em andamento">Em andamento</option>
+                    <option value="Postado">Postado</option>
+                  </select>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import express from 'express';
-import postController from '../controller/postController.js';
+import postController from '../Controller/postController.js';
 import middleware from '../midleware/jwtValidate.js';
 
 const router = express.Router();

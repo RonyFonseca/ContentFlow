@@ -101,14 +101,14 @@ export default function CreatePost() {
                 <button
                 type="button"
                 className={`${Style.badge} ${Style.badgePlanejado} ${status === "Em andamento" ? Style.activePlanejado : ""}`}
-                onClick={() => setStatus("Planejado")}
+                onClick={() => setStatus("Em andamento")}
                 >
                     Em andamento
                 </button>
                 <button
                 type="button"
                 className={`${Style.badge} ${Style.badgeAndamento} ${status === "Planejado" ? Style.activeAndamento : ""}`}
-                onClick={() => setStatus("Em andamento")}
+                onClick={() => setStatus("Planejado")}
                 >
                     Planejado
                 </button>
