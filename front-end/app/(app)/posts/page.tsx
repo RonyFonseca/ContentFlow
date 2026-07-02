@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import Style from "./posts.module.css"; 
 import HomeStyle from "../home.module.css"; 
 import { useRouter } from "next/navigation";
-import { Plus, MagnifyingGlass, CaretDown } from "@phosphor-icons/react";
+import { Plus, MagnifyingGlass, CaretDown,Trash } from "@phosphor-icons/react";
 import { api } from "../../../services/api";
 import Cookie from "js-cookie";
+
 
 
 
@@ -36,10 +37,14 @@ export default function Posts() {
     getInformations();
   }, []);
 
-  const handleStatusChange = async(id:string, status:string) => {
-    const response = await api.patch(`/posts/${id}/status`, {status}); 
+  const handleStatusChange = async(idPost:string, status:string) => {
+    const response = await api.patch(`/posts/${idPost}/status`, {status}); 
 
     window.location.reload();
+  }
+
+  const handleDeletePost = (idPost:string) => {
+    //lógica de delete
   }
 
 
@@ -127,6 +132,14 @@ export default function Posts() {
                     <option value="Postado">Postado</option>
                   </select>
                 </div>
+
+                <button
+                  className={HomeStyle.deleteButton}
+                  onClick={() => handleDeletePost(post.id)}
+                  title="Excluir post"
+                >
+                  <Trash size={18} weight="fill" />
+                </button>
               </div>
             </div>
           )))}

@@ -5,12 +5,8 @@ import middleware from '../midleware/jwtValidate.js';
 const router = express.Router();
 const postControllerInstance = new postController();
 
-//método listarPosts()
-router.get('/posts', postControllerInstance.getAllPosts);
-
+//Pegar os posts com o id do usuário logado
 router.get('/getAllPostsById', middleware, postControllerInstance.getAllPostsById);
-
-router.get('/post/:idPost', postControllerInstance.getPostById);
 
 //método criarPost()
 router.post('/createPost', middleware, postControllerInstance.createPost);
