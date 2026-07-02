@@ -33,6 +33,27 @@ export default function Home() {
     getInformations();
   }, []);
 
+  const getMonth = (date: string) => {
+    const months = [
+      "JAN",
+      "FEV",
+      "MAR",
+      "ABR",
+      "MAI",
+      "JUN",
+      "JUL",
+      "AGO",
+      "SET",
+      "OUT",
+      "NOV",
+      "DEZ",
+    ];
+
+    const month = Number(date.split("-")[1]); // "07" -> 7
+
+    return months[month - 1];
+  };
+
 
   const getPlanejados = () => {
     return posts.filter((post: any) => post.status === "Planejado").length;
@@ -69,7 +90,7 @@ export default function Home() {
             <div className={Style.post} key={index}>
               <div className={Style.date}>
                 <h4>{post.date.slice(8, 10)}</h4>
-                <p>JUN</p>
+                <p>{getMonth(post.date)}</p>
               </div>
               <div className={Style.postContent}>
                 <p>{post.title}</p>

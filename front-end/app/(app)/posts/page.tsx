@@ -34,6 +34,27 @@ export default function Posts() {
     getInformations();
   }, []);
 
+  const getMonth = (date: string) => {
+    const months = [
+      "JAN",
+      "FEV",
+      "MAR",
+      "ABR",
+      "MAI",
+      "JUN",
+      "JUL",
+      "AGO",
+      "SET",
+      "OUT",
+      "NOV",
+      "DEZ",
+    ];
+
+    const month = Number(date.split("-")[1]); // "07" -> 7
+
+    return months[month - 1];
+  };
+
   const handleStatusChange = async(idPost:string, status:string) => {
     const response = await api.patch(`/posts/${idPost}/status`, {status}); 
 
@@ -58,6 +79,8 @@ export default function Posts() {
     alert("Não foi possível excluir o post. Tente novamente.");
   }
 };
+
+
 
 
   return (
@@ -120,7 +143,7 @@ export default function Posts() {
             <div className={HomeStyle.post} key={index}>
               <div className={HomeStyle.date}>
                 <h4>{post.date.slice(8, 10)}</h4>
-                <p>JUN</p>
+                <p>{getMonth(post.date)}</p>
               </div>
 
               <div className={HomeStyle.postContent}>
