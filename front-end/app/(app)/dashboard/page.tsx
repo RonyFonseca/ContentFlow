@@ -51,6 +51,10 @@ export default function Dashboard() {
       return posts.filter((post: any) => post.status === "Em andamento").length;
     }
 
+    const postEmProd = () => {
+      return getPlanejados() + getPendentes(); 
+    }
+
   return (
     <div id={Style.dashboard}>
 
@@ -63,7 +67,7 @@ export default function Dashboard() {
           <Card quantidade={getPlanejados()} description="Posts planejados" icon={Note} />
           <Card quantidade={getConcluidos()} description="Posts postados" icon={Check} />
           <Card quantidade={getPendentes()} description="Posts pendentes" icon={Clock} />
-          <Card quantidade={3} description="Posts em produção" icon={Magic} />
+          <Card quantidade={postEmProd()} description="Posts em produção" icon={Magic} />
         </section>
 
         <div className={Style.performanceContainer}>
