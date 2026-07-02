@@ -7,9 +7,6 @@ import { Plus, MagnifyingGlass, CaretDown,Trash } from "@phosphor-icons/react";
 import { api } from "../../../services/api";
 import Cookie from "js-cookie";
 
-
-
-
 export default function Posts() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
@@ -43,9 +40,24 @@ export default function Posts() {
     window.location.reload();
   }
 
-  const handleDeletePost = (idPost:string) => {
-    //lógica de delete
+  const handleDeletePost = async (idPost:string) => {
+    const confirmDelete = window.confirm("Tem certeza que deseja excluir este post?");
+    if (!confirmDelete) return;
+      
+    try{
+      await api.delete(`/posts/${idPost}/delete`, {
+        headers: {
+          Authorization: `Bearer ${Cookie.get("token")}`
+        }
+      });
+
+    window.location.reload();
+    
+  } catch (error) {
+    console.error("Erro ao excluir o post:", error);
+    alert("Não foi possível excluir o post. Tente novamente.");
   }
+};
 
 
   return (
@@ -138,7 +150,7 @@ export default function Posts() {
                   onClick={() => handleDeletePost(post.id)}
                   title="Excluir post"
                 >
-                  <Trash size={18} weight="fill" />
+                  <Trash size={18} weight="fill" color="var(--primary-500)"/>
                 </button>
               </div>
             </div>
