@@ -25,7 +25,6 @@ export default function Posts() {
         });
 
         setPosts(response.data.posts);
-        console.log("Informações recebidas:", response.data);
       } catch (error) {
         console.error("Erro ao buscar informações:", error);
       }
