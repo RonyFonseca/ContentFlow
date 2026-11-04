@@ -17,7 +17,7 @@ Este repositório contém a landing page oficial do projeto, que centraliza o ac
 ## 🌐 Plataformas
 
 - **Web:** [Acessar repositório](https://github.com/RonyFonseca/ContentFlow-web)
-- **Mobile:** [Acessar repositório](https://github.com/RonyFonseca/ContentFlow-app)
+- **Mobile:** [Acessar repositório](https://github.com/Jamilly-Pedrosa/ContentFlow-app)
 - **API:** [Acessar repositório](https://github.com/RonyFonseca/ContentFlow-API)
 
 ## 🛠️ Tecnologias
