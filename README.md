@@ -8,7 +8,7 @@
   **Organize suas ideias. Planeje seus conteúdos. Mantenha o fluxo.**
 </p>
 
-O **ContentFlow** é uma plataforma desenvolvida para facilitar o planejamento e o gerenciamento de conteúdos para redes sociais, reunindo em um só lugar ferramentas para organizar publicações e acompanhar o fluxo de produção.
+O ContentFlow é uma plataforma desenvolvida para facilitar o planejamento e o gerenciamento de conteúdos para redes sociais, reunindo em um só lugar ferramentas para organizar publicações e acompanhar o fluxo de produção.
 
 Este repositório contém a landing page oficial do projeto, que centraliza o acesso às suas aplicações.
 
@@ -60,5 +60,5 @@ Não é necessário configurar build ou instalar dependências.
 ---
 
 <p align="center">
-  **ContentFlow** · Desenvolvido por Rony Fonseca
+  ContentFlow · Desenvolvido por Rony Fonseca & Jamilly Pedrosa
 </p>
