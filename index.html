@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6554EE">
+<meta name="description" content="ContentFlow — Planeje posts, organize ideias e acompanhe seus resultados.">
+<title>ContentFlow — Do planejamento à publicação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--p:#6554ee;--p50:#f0eefd;--p100:#cfcafa;--blue:#097feb;--cyan:#01c6cf;--ink:#1a1a1a;--muted:#727272;--bg:#f8f9fa;--white:#fff;--line:#e9e9e9;--green:#76ca81;--orange:#fecc43}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+header{height:82px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center}.nav{display:flex;align-items:center;justify-content:space-between}.logo{width:190px;height:auto;display:block}.links{display:flex;gap:30px;color:#575757;font-size:13px;font-weight:500}.links a:hover{color:var(--p)}.navbtn,.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:9px;padding:12px 19px;background:var(--p);color:#fff;font:600 13px Poppins;box-shadow:0 5px 14px #6554ee30;transition:.2s}.navbtn:hover,.btn:hover{background:#5141dc;transform:translateY(-2px)}
+.hero{padding:75px 0 58px;background:linear-gradient(125deg,#f0eefd 0%,#f8f9fa 52%,#e6f9fa 100%);overflow:hidden}.hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:45px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--p);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:18px}.eyebrow:before{content:"";width:22px;height:2px;background:var(--cyan);border-radius:4px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(38px,4.6vw,58px);line-height:1.16;letter-spacing:-2.1px;margin-bottom:20px;font-weight:700}h1 span{background:linear-gradient(90deg,var(--p),var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{color:#575757;font-size:16px;max-width:470px;margin-bottom:27px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn.outline{background:#fff;color:var(--p);border:1px solid #d8d3fc;box-shadow:none}.btn.outline:hover{background:var(--p50)}.micro{font-size:11px;color:#939393;margin-top:17px}.hero-art{position:relative}.hero-art img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 22px 55px #28204420;border:1px solid #ffffff}
+.section{padding:76px 0}.section-head{max-width:660px;margin-bottom:34px}.section-head h2{font-size:clamp(28px,3.5vw,40px);line-height:1.22;letter-spacing:-1.2px;margin-bottom:12px}.section-head p{color:var(--muted);font-size:14px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.feature{background:#fff;border:1px solid var(--line);border-radius:13px;padding:25px;box-shadow:0 5px 20px #1a1a1a06}.ico{width:43px;height:43px;border-radius:12px;background:var(--p50);color:var(--p);display:grid;place-items:center;font-size:21px;margin-bottom:18px}.feature:nth-child(2) .ico{background:#e6f2fd;color:var(--blue)}.feature:nth-child(3) .ico{background:#e6f9fa;color:#018d93}.feature h3{font-size:16px;margin-bottom:7px}.feature p{font-size:13px;color:var(--muted);margin:0}
+.flow{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.flow-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}.steps{display:grid;gap:12px}.step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:11px;background:#fff}.num{width:30px;height:30px;display:grid;place-items:center;flex:none;background:var(--p50);color:var(--p);font-size:12px;font-weight:700;border-radius:9px}.step:nth-child(2) .num{background:#e6f2fd;color:var(--blue)}.step:nth-child(3) .num{background:#e6f9fa;color:#018d93}.step:nth-child(4) .num{background:#f1faf2;color:#548f5c}.step b{display:block;font-size:13px;margin-bottom:2px}.step span{font-size:12px;color:var(--muted)}
+.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.repo{background:#fff;border:1px solid var(--line);border-radius:13px;padding:23px;display:flex;flex-direction:column;min-height:218px;box-shadow:0 5px 20px #1a1a1a06}.repo-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.repo-icon{width:40px;height:40px;border-radius:11px;background:var(--p50);color:var(--p);display:grid;place-items:center;font-size:20px}.repo:nth-child(2) .repo-icon{background:#e6f2fd;color:var(--blue)}.repo:nth-child(3) .repo-icon{background:#e6f9fa;color:#018d93}.repo small{font-size:10px;letter-spacing:1px;color:#939393;font-weight:600}.repo h3{font-size:16px;margin-bottom:7px}.repo p{font-size:12px;color:var(--muted);flex:1}.repo a{font-size:12px;color:var(--p);font-weight:600}.repo a:hover{color:var(--blue)}
+.tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tech span{font-size:11px;color:#575757;padding:7px 11px;border-radius:7px;background:#fff;border:1px solid var(--line)}
+.cta{padding:58px 25px;text-align:center;border-radius:16px;background:linear-gradient(110deg,#f0eefd,#e6f2fd 65%,#e6f9fa);border:1px solid #e4e0fc}.cta h2{font-size:30px;line-height:1.2;margin-bottom:10px}.cta p{font-size:13px;color:var(--muted);max-width:560px;margin:0 auto 22px}
+footer{background:#fff;border-top:1px solid var(--line);margin-top:75px;padding:27px 0;color:#939393;font-size:11px}.foot{display:flex;justify-content:space-between;align-items:center;gap:18px}.foot img{width:145px}
+@media(max-width:850px){.hero-grid,.flow-grid{grid-template-columns:1fr;gap:35px}.hero-art{max-width:700px}.features,.repos{grid-template-columns:1fr 1fr}.flow-grid{gap:28px}}
+@media(max-width:560px){.wrap{width:calc(100% - 34px)}header{height:70px}.logo{width:155px}.links{display:none}.hero{padding:55px 0 42px}h1{letter-spacing:-1.4px}.lead{font-size:14px}.section{padding:58px 0}.features,.repos{grid-template-columns:1fr}.cta{padding:42px 18px}.cta h2{font-size:25px}.foot{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a href="#inicio"><img class="logo" src="assets/LogoTipo.svg" alt="ContentFlow"></a>
+<nav class="links"><a href="#sobre">Sobre</a><a href="#recursos">Recursos</a><a href="#projeto">Projeto</a></nav>
+<a class="navbtn" href="#repositorios">Ver repositórios ↗</a>
+</div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+<div><div class="eyebrow">Planejamento de conteúdo</div>
+<h1>Do planejamento à publicação, <span>tudo flui.</span></h1>
+<p class="lead">Planeje posts, organize ideias e acompanhe seus resultados. Um espaço para transformar o planejamento de conteúdo em um processo mais simples e organizado.</p>
+<div class="actions"><a class="btn" href="#recursos">Conheça o ContentFlow ↓</a><a class="btn outline" href="#repositorios">Explorar código ↗</a></div>
+<p class="micro">Projeto em desenvolvimento • Web, Mobile e API</p></div>
+<div class="hero-art"><img src="assets/Cover.jpg" alt="Apresentação visual oficial do ContentFlow App"></div>
+</div></section>
+<section class="section" id="sobre"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Sobre o projeto</div><h2>Seu planejamento de conteúdo em um só lugar.</h2><p>O ContentFlow foi pensado para social medias, criadores de conteúdo e pequenos negócios que precisam organizar publicações, manter consistência e acompanhar o andamento do que produzem.</p></div>
+<div class="features" id="recursos">
+<article class="feature"><div class="ico">▦</div><h3>Planejamento visual</h3><p>Organize publicações por data e acompanhe sua programação em calendário.</p></article>
+<article class="feature"><div class="ico">✦</div><h3>Banco de ideias</h3><p>Registre ideias para desenvolver depois e evite deixar boas pautas se perderem.</p></article>
+<article class="feature"><div class="ico">✓</div><h3>Gestão de posts</h3><p>Acompanhe o conteúdo entre os status planejado, em andamento e postado.</p></article>
+</div></div></section>
+<section class="section flow"><div class="wrap flow-grid">
+<div><div class="eyebrow">Como funciona</div><div class="section-head"><h2>Da primeira ideia ao conteúdo publicado.</h2><p>O fluxo acompanha as etapas do planejamento para que você saiba o que está por vir, o que está sendo produzido e o que já foi concluído.</p></div></div>
+<div class="steps">
+<div class="step"><div class="num">01</div><div><b>Ideias</b><span>Registre e organize possíveis conteúdos.</span></div></div>
+<div class="step"><div class="num">02</div><div><b>Planejamento</b><span>Defina datas, formatos, categorias e legendas.</span></div></div>
+<div class="step"><div class="num">03</div><div><b>Em andamento</b><span>Acompanhe o que está em produção.</span></div></div>
+<div class="step"><div class="num">04</div><div><b>Publicado</b><span>Mantenha o histórico do que já foi ao ar.</span></div></div>
+</div></div></section>
+<section class="section" id="projeto"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Código e arquitetura</div><h2>Três repositórios. Um único ContentFlow.</h2><p>As aplicações são organizadas separadamente, cada uma com sua responsabilidade dentro do projeto.</p></div>
+<div class="repos" id="repositorios">
+<article class="repo"><div class="repo-top"><div class="repo-icon">⌘</div><small>01 / WEB</small></div><h3>ContentFlow Web</h3><p>Aplicação web para planejamento, calendário, gestão de posts e análise de conteúdo.</p><a href="https://github.com/RonyFonseca/ContentFlow-web" target="_blank" rel="noreferrer">Acessar repositório ↗</a></article>
+<article class="repo"><div class="repo-top"><div class="repo-icon">▣</div><small>02 / MOBILE</small></div><h3>ContentFlow App</h3><p>Versão mobile para organizar ideias, planejar publicações e acompanhar conteúdos pelo celular.</p><a href="https://github.com/RonyFonseca/ContentFlow-app" target="_blank" rel="noreferrer">Acessar repositório ↗</a></article>
+<article class="repo"><div class="repo-top"><div class="repo-icon">⌁</div><small>03 / API</small></div><h3>ContentFlow API</h3><p>API REST responsável pelas regras de negócio, persistência e comunicação entre as aplicações.</p><a href="https://github.com/RonyFonseca/ContentFlow-API" target="_blank" rel="noreferrer">Acessar repositório ↗</a></article>
+</div>
+<div class="tech"><span>TypeScript</span><span>Next.js</span><span>React</span><span>React Native</span><span>Expo</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Prisma</span><span>Docker</span></div>
+</div></section>
+<section class="wrap"><div class="cta"><div class="eyebrow">Acompanhe a evolução</div><h2>Construindo um fluxo melhor para criar conteúdo.</h2><p>Explore o código, acompanhe o desenvolvimento e conheça as decisões por trás do ContentFlow.</p><a class="btn" href="https://github.com/RonyFonseca/ContentFlow-web" target="_blank" rel="noreferrer">Conhecer no GitHub ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><img src="assets/LogoTipo.svg" alt="ContentFlow"><span>Planeje posts, organize ideias e acompanhe seus resultados.</span><span>© 2026 ContentFlow • Projeto em desenvolvimento</span></div></footer>
+</body></html>
